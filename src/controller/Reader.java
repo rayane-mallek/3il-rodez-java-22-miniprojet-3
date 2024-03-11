@@ -1,5 +1,7 @@
 package controller;
 
+import model.Word;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.FileReader;
@@ -8,8 +10,8 @@ import java.util.Random;
 public class Reader {
     public static final String path = "mots.txt";
 
-    public String[] getRandomWordAndDefinition() {
-        String[] wordDefinition = new String[2];
+    public Word getRandomWordAndDefinition() {
+        Word word = null;
         int count = 0;
 
         try (BufferedReader lecteur = new BufferedReader(new FileReader(path))) {
@@ -19,13 +21,12 @@ public class Reader {
             while ((line = lecteur.readLine()) != null) {
                 count++;
                 if (rand.nextInt(count) == 0) {
-                    wordDefinition[0] = getWord(line);
-                    wordDefinition[1] = getDefinition(line);
+                    word = new Word(getWord(line), getDefinition(line));
                 }
             }
         } catch (IOException e) {;}
 
-        return wordDefinition;
+        return word;
     }
 
     private String getWord(String line) {
