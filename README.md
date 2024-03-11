@@ -3,7 +3,7 @@
 1. <s>Lecture aléatoire d'un mot à deviner à partir d'un fichier texte donné à la racine du projet.</s>
 2. <s>Affichage graphique de l'interface du jeu à l'aide de Swing.</s>
 3. <s>Affichage graphique du pendu qui évolue en fonction des erreurs du joueur.</s>
-4. Affichage graphique des lettres déjà proposées par le joueur.
+4. <s>Affichage graphique des lettres déjà proposées par le joueur.</s>
 5. Affichage (ou non) de la définition (niveau de difficulté).
 6. Utilisation (ou non) d'un timer (niveau de difficulté).
 7. <s>Gestion des entrées utilisateur pour proposer des lettres.</s>

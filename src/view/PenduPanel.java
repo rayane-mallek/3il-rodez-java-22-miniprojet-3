@@ -16,10 +16,20 @@ public class PenduPanel extends JPanel {
         repaint();
 
         if (numParts >= 7) {
-            JOptionPane.showMessageDialog(this, "Perdu! Le pendu est complet.");
-            Window window = SwingUtilities.getWindowAncestor(this);
-            if (window != null) {
-                window.dispose();
+            // Afficher la boîte de dialogue
+            int option = JOptionPane.showOptionDialog(this,
+                    "Perdu! Le pendu est complet. Voulez-vous relancer le jeu?",
+                    "Partie Terminée",
+                    JOptionPane.YES_NO_OPTION,
+                    JOptionPane.QUESTION_MESSAGE,
+                    null,
+                    new String[]{"Relancer", "Quitter"},
+                    "Relancer");
+
+            if (option == JOptionPane.YES_OPTION) {
+
+            } else {
+                System.exit(0);
             }
         }
     }

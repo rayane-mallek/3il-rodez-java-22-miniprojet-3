@@ -8,12 +8,13 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
         JFrame fenetrePrincipale = new JFrame("Pendu de Rayane");
         fenetrePrincipale.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        fenetrePrincipale.setSize(800, 600);
+        fenetrePrincipale.setSize(1500, 1500);
 
         JPanel contentPane = new JPanel(new BorderLayout());
         fenetrePrincipale.setContentPane(contentPane);
@@ -32,6 +33,9 @@ public class Main {
         JPanel bottomPanel = new JPanel(new BorderLayout());
         contentPane.add(bottomPanel, BorderLayout.SOUTH);
 
+        JLabel wrongLettersLabel = new JLabel("Lettres proposées : ");
+        bottomPanel.add(wrongLettersLabel, BorderLayout.NORTH);
+
         JTextField lettreField = new JTextField();
         bottomPanel.add(lettreField, BorderLayout.CENTER);
 
@@ -45,6 +49,7 @@ public class Main {
                     if (! controller.isLetterAlreadyGuessed(lettreChar)) {
                         controller.checkLetter(lettreChar);
                         labelMot.setText(word.getCensoredWord());
+                        updateWrongLettersLabel(controller.getWrongLetters(), wrongLettersLabel);
                     } else {
                         JOptionPane.showMessageDialog(fenetrePrincipale, "Vous avez déjà deviné cette lettre.");
                     }
@@ -52,6 +57,15 @@ public class Main {
                     JOptionPane.showMessageDialog(fenetrePrincipale, "Veuillez entrer une seule lettre.");
                 }
                 lettreField.setText("");
+            }
+
+            private void updateWrongLettersLabel(List<Character> wrongLetters, JLabel wrongLettersLabel) {
+                StringBuilder sb = new StringBuilder("Lettres proposées : ");
+                for (char letter : wrongLetters) {
+                    sb.append(letter).append(", ");
+                }
+                // Supprimer la virgule à la fin et mettre à jour le texte de la JLabel
+                wrongLettersLabel.setText(sb.substring(0, sb.length() - 2));
             }
         });
         bottomPanel.add(btnLettre, BorderLayout.EAST);

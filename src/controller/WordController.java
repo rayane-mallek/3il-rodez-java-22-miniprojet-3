@@ -3,8 +3,6 @@ package controller;
 import model.Word;
 import view.PenduPanel;
 
-import javax.swing.*;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,11 +10,13 @@ public class WordController {
     private Word word;
     private PenduPanel penduPanel;
     private List<Character> guessedLetter;
+    private List<Character> wrongLetters;
 
     public WordController(Word word, PenduPanel penduPanel) {
         this.word = word;
         this.penduPanel = penduPanel;
         this.guessedLetter = new ArrayList<>();
+        this.wrongLetters = new ArrayList<>();
     }
 
     public boolean isLetterAlreadyGuessed(char lettreChar) {
@@ -48,6 +48,7 @@ public class WordController {
 
         if (! found) {
             penduPanel.increaseParts();
+            wrongLetters.add(lettreChar);
         }
 
         word.setCensoredWord(censoredWordBuilder.toString());
@@ -57,5 +58,9 @@ public class WordController {
         if (word.getCensoredWord().equals(word.getWord())) {
             penduPanel.displayVictoryDialog();
         }
+    }
+
+    public List<Character> getWrongLetters() {
+        return wrongLetters;
     }
 }
