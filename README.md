@@ -1,56 +1,16 @@
----
-titre: Java
-sous-titre: Miniprojet 3 - Pendu avec Swing
-auteur: Philippe \textsc{Roussille}
-date: 3iL 1A 2023
----
+## Fonctionnalités réalisées
 
-**Date de rendu du projet : 13/03/2024 - 17h05**
-
-# Bienvenue dans votre projet
-
-Nous approchons bientôt des huit mois de pratique en Java, et jusqu'à présent, vous avez été habitués à recevoir des sujets détaillés pour vos travaux. Cette fois-ci, c'est un peu différent : je vous propose un projet orienté conception. Cela signifie que la façon dont vous concevez et structurez votre code sera bien plus prise en compte que la partie purement codée. Cependant, assurez-vous que votre projet minimal compile et soit fonctionnel. Bon courage !
-
-## Tests unitaires, `git` et Javadoc
-
-- Il vous est demandé de bien *commenter* et de bien réaliser la documentation (au format Javadoc) de vos fichiers.
-- Pensez à commiter & pusher votre travail ***de façon régulière***.
-- Les messages de vos commits sont essentiels (pas de "lol ça marche", "ENFIN!!!!", "toto", ou autres). Soyez clairs (vous pouvez vous inspirer de [cette norme](https://buzut.net/cours/versioning-avec-git/bien-nommer-ses-commits)).
-- N'oubliez pas de réaliser des tests unitaires afin de valider votre code au fur et à mesure de votre production. Essayez d'en réaliser au moins un par partie demandée.
-
-## Structure du rendu
-
-1. Il vous est demandé un rendu *propre*, c'est à dire qui **compile** à minima.
-2. Si votre projet **ne compile pas**, la note est automatiquement plafonnée à 10.
-3. Votre projet comportera à la racine un fichier `AUTHORS` qui comporte votre nom et votre adresse 3il (du genre `Philippe ROUSSILLE <roussille@3il.fr>`).
-4. Ce projet est à faire ***individuellement***. Toutefois, je n'ai rien contre l'entraide entre vous (tant que cela ne se résume pas à "pomper le code du voisin"). Si vous avez été aidé par quelqu'un, réalisez un fichier `HELPERS` à la racine de votre projet où vous indiquez celui qui vous a aidé, et de quelle façon (cela constituera un bonus pour cette personne lors de la notation).
-5. Enfin, vous réaliserez un fichier `README.md` à la racine du projet dans lequel vous indiquerez, sous réserve de pertinence :
-    - ce que vous avez réalisé du projet ;
-    - les réponses aux diverses questions du sujet s'il y en a ;
-    - un retour personnel sur les points qui vous ont paru difficiles ;
-    - tout autre commentaire que vous jugerez utile...
-
-**Vous devez également inclure une section détaillée sur vos réflexions concernant la conception et la réflexion sur le projet. Cette section est à votre responsabilité pour assurer la clarté de votre approche et la qualité de votre réflexion.**
-
-## Fonctionnalités attendues
-
-1. Lecture aléatoire d'un mot à deviner à partir d'un fichier texte donné à la racine du projet.
-2. Affichage graphique de l'interface du jeu à l'aide de Swing.
-3. Affichage graphique du pendu qui évolue en fonction des erreurs du joueur.
+1. <s>Lecture aléatoire d'un mot à deviner à partir d'un fichier texte donné à la racine du projet.</s>
+2. <s>Affichage graphique de l'interface du jeu à l'aide de Swing.</s>
+3. <s>Affichage graphique du pendu qui évolue en fonction des erreurs du joueur.</s>
 4. Affichage graphique des lettres déjà proposées par le joueur.
 5. Affichage (ou non) de la définition (niveau de difficulté).
 6. Utilisation (ou non) d'un timer (niveau de difficulté).
-7. Gestion des entrées utilisateur pour proposer des lettres.
-8. Vérification de la validité des entrées utilisateur (lettre de l'alphabet uniquement).
+7. <s>Gestion des entrées utilisateur pour proposer des lettres.</s>
+8. <s>Vérification de la validité des entrées utilisateur (lettre de l'alphabet uniquement).</s>
 9. Gestion du décompte des tentatives restantes.
-10. Gestion de la victoire ou de la défaite du joueur.
+10. <s>Gestion de la victoire ou de la défaite du joueur.</s>
 11. Possibilité de rejouer une partie après la fin d'une partie.
-
-## Contraintes techniques
-
-- Le fichier texte contenant la liste des mots à deviner sera nommé `mots.txt` et sera placé à la racine du projet.
-- Le format du fichier `mots.txt` sera d'un mot par ligne, suivi d'un espace, et de sa définition.
-- Le programme devra lire aléatoirement un mot à partir de ce fichier pour chaque nouvelle partie.
 
 ## Réalisations bonus
 
