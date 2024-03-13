@@ -26,10 +26,9 @@ public class PenduPanel extends JPanel {
         repaint();
 
         if (numParts >= 7) {
-            // Afficher la boîte de dialogue
             int option = JOptionPane.showOptionDialog(this,
-                    "Perdu! Le pendu est complet. Voulez-vous relancer le jeu?",
-                    "Partie Terminée",
+                    "Le temps est écoulé! Le jeu est terminé. Voulez-vous relancer le jeu?",
+                    "Temps écoulé",
                     JOptionPane.YES_NO_OPTION,
                     JOptionPane.QUESTION_MESSAGE,
                     null,
@@ -37,7 +36,12 @@ public class PenduPanel extends JPanel {
                     "Relancer");
 
             if (option == JOptionPane.YES_OPTION) {
-
+                // Relancer le jeu
+                Window window = SwingUtilities.getWindowAncestor(this);
+                if (window != null) {
+                    window.dispose();
+                }
+                new MainPanel();
             } else {
                 System.exit(0);
             }
@@ -47,10 +51,23 @@ public class PenduPanel extends JPanel {
     }
 
     public void displayVictoryDialog() {
-        JOptionPane.showMessageDialog(null, "Félicitations! Vous avez gagné!");
-        Window window = SwingUtilities.getWindowAncestor(this);
-        if (window != null) {
-            window.dispose();
+        int option = JOptionPane.showOptionDialog(this,
+                "Félicitations! Vous avez gagné! Voulez-vous relancer le jeu?",
+                "Partie Terminée",
+                JOptionPane.YES_NO_OPTION,
+                JOptionPane.QUESTION_MESSAGE,
+                null,
+                new String[]{"Relancer", "Quitter"},
+                "Relancer");
+
+        if (option == JOptionPane.YES_OPTION) {
+            JFrame window = (JFrame) SwingUtilities.getWindowAncestor(this);
+            if (window != null) {
+                window.dispose();
+            }
+            new MainPanel();
+        } else {
+            System.exit(0);
         }
     }
 
