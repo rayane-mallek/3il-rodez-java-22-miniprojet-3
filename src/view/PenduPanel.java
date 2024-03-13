@@ -118,4 +118,31 @@ public class PenduPanel extends JPanel {
             g.drawLine(width / 2 + 60, height - 40, width / 2 + 100, height + 40);
         }
     }
+
+    /**
+     * Renvoie le nombre de parties du pendu actuellement affichées.
+     *
+     * @return Le nombre de parties du pendu.
+     */
+    public int getNumParts() {
+        return numParts;
+    }
+
+    /**
+     * Renvoie l'étiquette représentant le nombre de tentatives restantes.
+     *
+     * @return L'étiquette des tentatives.
+     */
+    public JLabel getAttemptsLabel() {
+        return attemptsLabel;
+    }
+
+    /**
+     * Renvoie le nombre de tentatives restantes.
+     *
+     * @return Le nombre de tentatives restantes.
+     */
+    public int getRemainingAttempts() {
+        return remainingAttempts;
+    }
 }

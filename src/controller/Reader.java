@@ -46,7 +46,7 @@ public class Reader {
      * @param line La ligne du fichier contenant le mot et sa définition.
      * @return Le mot extrait de la ligne.
      */
-    private String getWord(String line) {
+    public String getWord(String line) {
         return line.split("\\s+")[0];
     }
 
@@ -56,7 +56,7 @@ public class Reader {
      * @param line La ligne du fichier contenant le mot et sa définition.
      * @return La définition extraite de la ligne.
      */
-    private String getDefinition(String line) {
+    public String getDefinition(String line) {
         int firstSpaceIndex = line.indexOf(" ");
         if (firstSpaceIndex != -1 && firstSpaceIndex < line.length() - 1) {
             return line.substring(firstSpaceIndex + 1);
