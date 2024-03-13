@@ -30,6 +30,7 @@ public class Main {
         String definition = word.getDefinition();
 
         JPanel topPanel = new JPanel();
+        topPanel.setLayout(new BoxLayout(topPanel, BoxLayout.Y_AXIS));
         contentPane.add(topPanel, BorderLayout.NORTH);
 
         JLabel labelMot = new JLabel(word.getCensoredWord());
