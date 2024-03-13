@@ -4,7 +4,7 @@
 2. <s>Affichage graphique de l'interface du jeu à l'aide de Swing.</s>
 3. <s>Affichage graphique du pendu qui évolue en fonction des erreurs du joueur.</s>
 4. <s>Affichage graphique des lettres déjà proposées par le joueur.</s>
-5. Affichage (ou non) de la définition (niveau de difficulté).
+5. <s>Affichage (ou non) de la définition (niveau de difficulté).</s>
 6. Utilisation (ou non) d'un timer (niveau de difficulté).
 7. <s>Gestion des entrées utilisateur pour proposer des lettres.</s>
 8. <s>Vérification de la validité des entrées utilisateur (lettre de l'alphabet uniquement).</s>

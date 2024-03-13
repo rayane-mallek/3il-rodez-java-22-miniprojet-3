@@ -14,7 +14,7 @@ public class Main {
     public static void main(String[] args) {
         JFrame fenetrePrincipale = new JFrame("Pendu de Rayane");
         fenetrePrincipale.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        fenetrePrincipale.setSize(1500, 1500);
+        fenetrePrincipale.setSize(800, 800);
 
         JPanel contentPane = new JPanel(new BorderLayout());
         fenetrePrincipale.setContentPane(contentPane);
@@ -64,13 +64,30 @@ public class Main {
                 for (char letter : wrongLetters) {
                     sb.append(letter).append(", ");
                 }
-                // Supprimer la virgule à la fin et mettre à jour le texte de la JLabel
                 wrongLettersLabel.setText(sb.substring(0, sb.length() - 2));
             }
         });
         bottomPanel.add(btnLettre, BorderLayout.EAST);
 
-        fenetrePrincipale.pack();
+        JLabel labelDefinition = new JLabel("Définition : " + definition);
+        contentPane.add(labelDefinition, BorderLayout.CENTER);
+        labelDefinition.setVisible(false);
+
+        JButton btnDefinition = new JButton("Afficher la définition");
+        bottomPanel.add(btnDefinition, BorderLayout.NORTH);
+        btnDefinition.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (labelDefinition.isVisible()) {
+                    labelDefinition.setVisible(false);
+                    btnDefinition.setText("Afficher la définition");
+                } else {
+                    labelDefinition.setVisible(true);
+                    btnDefinition.setText("Masquer la définition");
+                }
+            }
+        });
+
         fenetrePrincipale.setLocationRelativeTo(null); // Centrer la fenêtre
         fenetrePrincipale.setVisible(true);
     }
