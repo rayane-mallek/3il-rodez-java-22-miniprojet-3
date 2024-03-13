@@ -16,7 +16,9 @@ public class Main {
         fenetrePrincipale.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         fenetrePrincipale.setSize(800, 800);
 
-        JPanel contentPane = new JPanel(new BorderLayout());
+        JPanel contentPane = new JPanel();
+        contentPane.setLayout(new BoxLayout(contentPane, BoxLayout.Y_AXIS));
+
         fenetrePrincipale.setContentPane(contentPane);
 
         PenduPanel penduPanel = new PenduPanel();
@@ -70,7 +72,8 @@ public class Main {
         bottomPanel.add(btnLettre, BorderLayout.EAST);
 
         JLabel labelDefinition = new JLabel("Définition : " + definition);
-        contentPane.add(labelDefinition, BorderLayout.CENTER);
+        labelDefinition.setAlignmentX(Component.CENTER_ALIGNMENT);
+        contentPane.add(labelDefinition);
         labelDefinition.setVisible(false);
 
         JButton btnDefinition = new JButton("Afficher la définition");
