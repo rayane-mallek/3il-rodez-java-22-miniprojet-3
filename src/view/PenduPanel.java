@@ -5,10 +5,20 @@ import java.awt.*;
 
 public class PenduPanel extends JPanel {
     private int numParts;
+    private JLabel attemptsLabel;
+    private int remainingAttempts = 7;
 
     public PenduPanel() {
         this.numParts = 0;
         this.setPreferredSize(new Dimension(200, 300));
+
+        attemptsLabel = new JLabel("Tentatives restantes : " + remainingAttempts);
+        add(attemptsLabel);
+    }
+
+    public void decreaseAttempts() {
+        remainingAttempts--;
+        attemptsLabel.setText("Tentatives restantes : " + remainingAttempts);
     }
 
     public void increaseParts() {
@@ -31,6 +41,8 @@ public class PenduPanel extends JPanel {
             } else {
                 System.exit(0);
             }
+        }  else {
+            decreaseAttempts();
         }
     }
 

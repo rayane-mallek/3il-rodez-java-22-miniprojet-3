@@ -8,7 +8,7 @@
 6. <s>Utilisation (ou non) d'un timer (niveau de difficulté).</s>
 7. <s>Gestion des entrées utilisateur pour proposer des lettres.</s>
 8. <s>Vérification de la validité des entrées utilisateur (lettre de l'alphabet uniquement).</s>
-9. Gestion du décompte des tentatives restantes.
+9. <s>Gestion du décompte des tentatives restantes.</s>
 10. <s>Gestion de la victoire ou de la défaite du joueur.</s>
 11. Possibilité de rejouer une partie après la fin d'une partie.
 
