@@ -29,19 +29,23 @@ public class Main {
 
         String definition = word.getDefinition();
 
+        JPanel topPanel = new JPanel();
+        contentPane.add(topPanel, BorderLayout.NORTH);
+
         JLabel labelMot = new JLabel(word.getCensoredWord());
-        contentPane.add(labelMot, BorderLayout.NORTH);
+        topPanel.add(labelMot, BorderLayout.NORTH);
 
         JPanel bottomPanel = new JPanel(new BorderLayout());
         contentPane.add(bottomPanel, BorderLayout.SOUTH);
 
         JLabel wrongLettersLabel = new JLabel("Lettres proposées : ");
-        bottomPanel.add(wrongLettersLabel, BorderLayout.NORTH);
+        topPanel.add(wrongLettersLabel, BorderLayout.CENTER);
 
         JTextField lettreField = new JTextField();
         bottomPanel.add(lettreField, BorderLayout.CENTER);
 
         JButton btnLettre = new JButton("Soumettre");
+        bottomPanel.add(btnLettre, BorderLayout.EAST);
         btnLettre.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -72,12 +76,11 @@ public class Main {
         bottomPanel.add(btnLettre, BorderLayout.EAST);
 
         JLabel labelDefinition = new JLabel("Définition : " + definition);
-        labelDefinition.setAlignmentX(Component.CENTER_ALIGNMENT);
-        contentPane.add(labelDefinition);
+        topPanel.add(labelDefinition, BorderLayout.SOUTH);
         labelDefinition.setVisible(false);
 
         JButton btnDefinition = new JButton("Afficher la définition");
-        bottomPanel.add(btnDefinition, BorderLayout.NORTH);
+        bottomPanel.add(btnDefinition, BorderLayout.WEST);
         btnDefinition.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -88,6 +91,34 @@ public class Main {
                     labelDefinition.setVisible(true);
                     btnDefinition.setText("Masquer la définition");
                 }
+            }
+        });
+
+        JButton btnStartTimer = new JButton("Démarrer le timer");
+        bottomPanel.add(btnStartTimer, BorderLayout.SOUTH);
+
+        JLabel timerLabel = new JLabel("Temps restant : ");
+        bottomPanel.add(timerLabel, BorderLayout.NORTH);
+
+        Timer timer = new Timer(1000, new ActionListener() {
+            int timeLeft = 60;
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (timeLeft > 0) {
+                    timeLeft--;
+                    timerLabel.setText("Temps restant : " + timeLeft + " secondes");
+                } else {
+                    ((Timer)e.getSource()).stop();
+                    JOptionPane.showMessageDialog(fenetrePrincipale, "Le temps est écoulé! Le jeu est terminé.");
+                }
+            }
+        });
+
+        btnStartTimer.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                timer.start();
             }
         });
 
