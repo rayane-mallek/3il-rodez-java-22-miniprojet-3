@@ -10,7 +10,16 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
 
+/**
+ * Classe principale représentant l'interface utilisateur du jeu du pendu.
+ * Cette classe étend JFrame et gère l'affichage et l'interaction avec l'utilisateur.
+ */
 public class MainPanel extends JFrame {
+
+    /**
+     * Constructeur de la classe MainPanel.
+     * Initialise l'interface utilisateur du jeu du pendu.
+     */
     public MainPanel() {
         JFrame fenetrePrincipale = new JFrame("Pendu de Rayane");
         fenetrePrincipale.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

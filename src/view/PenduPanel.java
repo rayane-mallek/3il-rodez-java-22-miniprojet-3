@@ -3,11 +3,18 @@ package view;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * Le panneau PenduPanel affiche l'image du pendu et gère les interactions de l'utilisateur pendant le jeu.
+ */
 public class PenduPanel extends JPanel {
     private int numParts;
     private JLabel attemptsLabel;
     private int remainingAttempts = 7;
 
+    /**
+     * Constructeur de la classe PenduPanel.
+     * Initialise le panneau et affiche le nombre de tentatives restantes.
+     */
     public PenduPanel() {
         this.numParts = 0;
         this.setPreferredSize(new Dimension(200, 300));
@@ -16,11 +23,17 @@ public class PenduPanel extends JPanel {
         add(attemptsLabel);
     }
 
+    /**
+     * Diminue le nombre de tentatives restantes.
+     */
     public void decreaseAttempts() {
         remainingAttempts--;
         attemptsLabel.setText("Tentatives restantes : " + remainingAttempts);
     }
 
+    /**
+     * Augmente le nombre de parties du pendu et affiche une boîte de dialogue en cas de défaite.
+     */
     public void increaseParts() {
         numParts++;
         repaint();
@@ -37,7 +50,7 @@ public class PenduPanel extends JPanel {
 
             if (option == JOptionPane.YES_OPTION) {
                 // Relancer le jeu
-                Window window = SwingUtilities.getWindowAncestor(this);
+                JFrame window = (JFrame) SwingUtilities.getWindowAncestor(this);
                 if (window != null) {
                     window.dispose();
                 }
@@ -45,11 +58,14 @@ public class PenduPanel extends JPanel {
             } else {
                 System.exit(0);
             }
-        }  else {
+        } else {
             decreaseAttempts();
         }
     }
 
+    /**
+     * Affiche une boîte de dialogue de victoire avec la possibilité de relancer le jeu.
+     */
     public void displayVictoryDialog() {
         int option = JOptionPane.showOptionDialog(this,
                 "Félicitations! Vous avez gagné! Voulez-vous relancer le jeu?",
@@ -78,28 +94,28 @@ public class PenduPanel extends JPanel {
         int height = getHeight();
 
         if (numParts >= 1) {
-            g.drawLine(width/2 - 40, height - 20, width/2 - 40, height - 250);
-            g.drawLine(width/2 - 40, height - 250, width/2 + 60, height - 250);
-            g.drawLine(width/2 + 60, height - 250, width/2 + 60, height - 220);
+            g.drawLine(width / 2 - 40, height - 20, width / 2 - 40, height - 250);
+            g.drawLine(width / 2 - 40, height - 250, width / 2 + 60, height - 250);
+            g.drawLine(width / 2 + 60, height - 250, width / 2 + 60, height - 220);
         }
 
         if (numParts >= 2) {
-            g.drawOval(width/2 + 20, height - 220, 80, 80);
+            g.drawOval(width / 2 + 20, height - 220, 80, 80);
         }
         if (numParts >= 3) {
-            g.drawLine(width/2 + 60, height - 140, width/2 + 60, height - 40);
+            g.drawLine(width / 2 + 60, height - 140, width / 2 + 60, height - 40);
         }
         if (numParts >= 4) {
-            g.drawLine(width/2 + 60, height - 120, width/2 + 20, height - 80);
+            g.drawLine(width / 2 + 60, height - 120, width / 2 + 20, height - 80);
         }
         if (numParts >= 5) {
-            g.drawLine(width/2 + 60, height - 120, width/2 + 100, height - 80);
+            g.drawLine(width / 2 + 60, height - 120, width / 2 + 100, height - 80);
         }
         if (numParts >= 6) {
-            g.drawLine(width/2 + 60, height - 40, width/2 + 20, height + 40);
+            g.drawLine(width / 2 + 60, height - 40, width / 2 + 20, height + 40);
         }
         if (numParts >= 7) {
-            g.drawLine(width/2 + 60, height - 40, width/2 + 100, height + 40);
+            g.drawLine(width / 2 + 60, height - 40, width / 2 + 100, height + 40);
         }
     }
 }
